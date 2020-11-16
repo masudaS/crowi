@@ -9,6 +9,8 @@ import dotenv from 'dotenv'
 import Crowi from 'server/crowi'
 import { join, resolve } from 'path'
 
+process.on('unhandledRejection', console.dir);
+
 // load .env
 dotenv.config()
 
