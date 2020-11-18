@@ -37,6 +37,7 @@ export default class PageHistory extends React.Component<Props, State> {
     this.props.crowi
       .apiGet('/revisions.ids', { page_id: pageId })
       .then((res) => {
+        console.log('PageHistory.tsx/componentDidMount: ', JSON.stringify(res, null, '/t'))
         const rev: Revision[] = res.revisions
         const diffOpened: State['diffOpened'] = {}
         const lastId = rev.length - 1

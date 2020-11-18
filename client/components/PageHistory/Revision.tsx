@@ -23,6 +23,7 @@ export default class Revision extends React.Component<Props> {
   }
 
   render() {
+    console.log('Revision.tsx/render: ', JSON.stringify(this.props.revision, null, '/t'))
     const revision = this.props.revision
     const author = revision.author
     const pic = <UserPicture user={author} />

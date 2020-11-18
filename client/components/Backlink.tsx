@@ -83,6 +83,7 @@ class Backlink extends React.Component<Props, State> {
   }
 
   createList(backlink: BacklinkType) {
+    console.log('Backlink.tsx/createList: ', JSON.stringify(backlink, null, '/t'))
     const path = backlink.fromPage.path
     const user = backlink.fromRevision.author
 

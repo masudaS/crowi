@@ -25,6 +25,7 @@ export default class Page extends React.Component<Props> {
     const { page, linkTo, excludePathString, isActive, children, ...props } = this.props
     const link = linkTo === '' ? page.path : linkTo
     const active = this.props.isActive ? 'active' : ''
+    console.log('Page.tsx/render: ', JSON.stringify(page.revision, null, '/t'))
     return (
       <li className={`d-flex flex-row page-list-li ${active}`} {...props}>
         <div className="page-user-picture">

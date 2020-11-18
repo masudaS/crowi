@@ -153,6 +153,8 @@ export default (crowi: Crowi) => {
   async function renderPage(pageData, req: Request, res: Response) {
     const user = req.user as UserDocument
 
+    console.log('page.ts/renderPage::', JSON.stringify(pageData.revision, null, '\t'))
+
     // create page
     if (!pageData) {
       return res.render('page.html', {
@@ -182,6 +184,7 @@ export default (crowi: Crowi) => {
   }
 
   actions.userPageShow = async function (req: Request, res: Response) {
+    console.log('page.ts/userPageShow begin')
     const user = req.user as UserDocument
     const username = req.params.username
     const path = `/user/${username}`
@@ -218,6 +221,7 @@ export default (crowi: Crowi) => {
       isNonExistentUserPage = true
       debug('Error while loading user page.', username)
     }
+    console.log('page.ts/userPageShow::', JSON.stringify(pageData.revision, null, '\t'))
 
     return res.render('user_page.html', {
       username,
