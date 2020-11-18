@@ -29,7 +29,7 @@ export default class Page extends React.Component<Props> {
     return (
       <li className={`d-flex flex-row page-list-li ${active}`} {...props}>
         <div className="page-user-picture">
-          <UserPicture user={page.revision.author} />
+          <UserPicture user={page.revision?.author} />
         </div>
         <div className="page-list-link-outer">
           <a className="page-list-link" href={link}>

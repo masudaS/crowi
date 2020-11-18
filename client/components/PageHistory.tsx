@@ -42,7 +42,7 @@ export default class PageHistory extends React.Component<Props, State> {
         const diffOpened: State['diffOpened'] = {}
         const lastId = rev.length - 1
         res.revisions.map((revision: Revision, i: number) => {
-          const author = typeof revision.author === 'string' ? revision.author : revision.author._id
+          const author = typeof revision?.author === 'string' ? revision?.author : revision?.author?._id
           const user = this.props.crowi.findUserById(author)
           if (user) {
             rev[i].author = user
