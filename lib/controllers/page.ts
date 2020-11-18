@@ -237,6 +237,9 @@ export default (crowi: Crowi) => {
   }
 
   actions.pageShow = async function (req: Request, res: Response) {
+    console.log('page.ts/pageShow')
+    console.log(JSON.stringify(req, null, '\t'))
+    console.log(JSON.stringify(res, null, '\t'))
     const path = getPathFromRequest(req)
 
     // FIXME: せっかく getPathFromRequest になってるのにここが生 params[0] だとダサイ
@@ -245,6 +248,7 @@ export default (crowi: Crowi) => {
     res.locals.path = path
     try {
       const page = (await Page.findPage(path, req.user, req.query.revision)) as PageDocument
+      console.log(JSON.stringify(page, null, '\t'))
       debug('Page found', page._id, page.path)
 
       if (isMarkdown) {
