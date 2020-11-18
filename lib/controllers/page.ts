@@ -175,7 +175,7 @@ export default (crowi: Crowi) => {
       path: pageData.path,
       page: pageData,
       revision: pageData.revision || {},
-      author: pageData.revision.author || false,
+      author: pageData.revision?.author || false,
       isNonExistentUserTrashPage,
     }
     const defaultPageTeamplate = 'page.html'
