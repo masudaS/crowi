@@ -248,8 +248,10 @@ export default (crowi: Crowi) => {
     res.locals.path = path
     try {
       console.log('aaa')
-      const page = (await Page.findPage(path, req.user, req.query?.revision)) as PageDocument
+      const revision = req.query?.revision
       console.log('bbb')
+      const page = (await Page.findPage(path, req.user, revision)) as PageDocument
+      console.log('ccc')
       console.log(JSON.stringify(page, null, '\t'))
       debug('Page found', page._id, page.path)
 
