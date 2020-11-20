@@ -389,7 +389,7 @@ export default (crowi: Crowi) => {
   }
 
   pageSchema.statics.populatePageData = function (pageData: PageDocument, revisionId) {
-    pageData.latestRevision = pageData.revision
+    pageData.latestRevision = pageData?.revision
     if (revisionId) {
       pageData.revision = revisionId
     }
@@ -578,6 +578,7 @@ export default (crowi: Crowi) => {
 
   // find page and check if granted user
   pageSchema.statics.findPage = async function (path, userData, revisionId, ignoreNotFound) {
+    console.log('findPage start: ', path, userData, revisionId)
     const pageData = await Page.findOne({ path })
 
     if (pageData === null) {
